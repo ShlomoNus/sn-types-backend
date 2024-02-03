@@ -1,0 +1,20 @@
+{
+  "name": "types-sn-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "author": "Shlomo Nusbaum",
+  "license": "ISC",
+  "peerDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.16",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "types-sn-general": "^1.0.0"
+  }
+}
