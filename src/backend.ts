@@ -4,7 +4,7 @@ import {
     Response,
     RequestHandler as Middleware,
 } from 'express';
-import { AnyType } from 'types-sn-general';
+import { AnyType } from 'sn-types-general';
 
 export type Handler<TBody = AnyType, TParams = unknown, Tquery = unknown> = (
     req: Request<TParams, unknown, TBody, Tquery>,
