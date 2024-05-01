@@ -1,6 +1,6 @@
 {
   "name": "sn-types-backend",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,6 +13,6 @@
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.16",
     "typescript": "^5.3.3",
-    "sn-types-general": "^1.0.1"
+    "sn-types-general": "^1.0.2"
   }
 }
