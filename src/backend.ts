@@ -32,6 +32,6 @@ type Method =
 export type Route = {
   method: Method;
   path: string;
-  middleware: Middleware[];
+  middleware?: Middleware[];
   handler: Handler | Router;
 };
