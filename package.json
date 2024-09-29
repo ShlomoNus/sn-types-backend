@@ -1,18 +1,22 @@
 {
   "name": "sn-types-backend",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "./dist/index.mjs",
   "files": [
     "/dist"
   ],
   "author": "Shlomo Nusbaum",
+  "scripts": {
+    "build":"tsc -p tsconfig.json"
+    },
   "license": "ISC",
   "peerDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.16",
     "typescript": "^5.3.3",
-    "sn-types-general": "^1.0.2"
+    "sn-types-general": "^1.0.4"
   }
 }
