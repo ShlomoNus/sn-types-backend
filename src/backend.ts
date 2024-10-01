@@ -12,10 +12,10 @@ type CustomRequest<
   Tquery = AnyType
 > = Request<TParams, unknown, TBody, Tquery>;
 
-export type Handler< TResult=AnyType,TBody = AnyType, TParams = AnyType, Tquery = AnyType> = (
+export type Handler< TBody = AnyType, TParams = AnyType, Tquery = AnyType> = (
   req: CustomRequest<TParams, TBody, Tquery>,
   res: Response
-) => TResult | Promise<TResult>;
+)=>AnyType ;
 
 type Method =
   | 'get'
