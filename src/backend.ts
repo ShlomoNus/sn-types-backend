@@ -10,15 +10,15 @@ import { AnyType } from "sn-types-general";
 type ParamDict = Record<string, AnyType>;
 
 interface CustomRequest<
-  TBody = unknown,
+  TBody = AnyType,
   TParams extends ParamDict = ParamDict,
-  TQuery = unknown
+  TQuery = AnyType
 > extends Request<TParams, any, TBody, TQuery> {}
 
 export type Handler<
-  TBody = unknown,
+  TBody = AnyType,
   TParams extends ParamDict = ParamDict, // Add this constraint here
-  TQuery = unknown
+  TQuery = AnyType
 > = (
   req: CustomRequest<TBody, TParams, TQuery>,
   res: Response
