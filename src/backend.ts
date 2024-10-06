@@ -3,31 +3,34 @@ import {
   Request,
   Response,
   RequestHandler as Middleware,
-} from 'express';
-import { AnyType } from 'sn-types-general';
+} from "express";
 
-type CustomRequest<
-  TBody = AnyType,
-  TParams = AnyType,
-  Tquery = AnyType
-> = Request<TParams, unknown, TBody, Tquery>;
+import { AnyType } from "sn-types-general";
 
-export type Handler< TBody = AnyType, TParams = AnyType, Tquery = AnyType> = (
-  req: CustomRequest<TParams, TBody, Tquery>,
+type ParamDict = Record<string, AnyType>;
+
+interface CustomRequest<
+  TBody = unknown,
+  TParams extends ParamDict = ParamDict,
+  TQuery = unknown
+> extends Request<TParams, any, TBody, TQuery> {}
+
+export type Handler<TBody = unknown, TParams = ParamDict, TQuery = unknown> = (
+  req: CustomRequest<TBody, TParams, TQuery>,
   res: Response
-)=>AnyType ;
+) => AnyType;
 
 type Method =
-  | 'get'
-  | 'head'
-  | 'post'
-  | 'put'
-  | 'delete'
-  | 'connect'
-  | 'options'
-  | 'trace'
-  | 'patch'
-  | 'use';
+  | "get"
+  | "head"
+  | "post"
+  | "put"
+  | "delete"
+  | "connect"
+  | "options"
+  | "trace"
+  | "patch"
+  | "use";
 
 export type Route = {
   method: Method;
@@ -35,3 +38,4 @@ export type Route = {
   middleware?: Middleware[];
   handler: Handler | Router;
 };
+
