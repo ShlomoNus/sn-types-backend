@@ -15,7 +15,11 @@ interface CustomRequest<
   TQuery = unknown
 > extends Request<TParams, any, TBody, TQuery> {}
 
-export type Handler<TBody = unknown, TParams = ParamDict, TQuery = unknown> = (
+export type Handler<
+  TBody = unknown,
+  TParams extends ParamDict = ParamDict, // Add this constraint here
+  TQuery = unknown
+> = (
   req: CustomRequest<TBody, TParams, TQuery>,
   res: Response
 ) => AnyType;
@@ -38,4 +42,3 @@ export type Route = {
   middleware?: Middleware[];
   handler: Handler | Router;
 };
-
