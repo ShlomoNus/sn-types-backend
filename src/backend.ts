@@ -1,9 +1,4 @@
-import {
-  Router,
-  Request,
-  Response,
-  RequestHandler as Middleware,
-} from "express";
+import { Router, Request, Response, RequestHandler } from "express";
 
 import { AnyType } from "sn-types-general";
 
@@ -19,10 +14,13 @@ export type Handler<
   TBody = AnyType,
   TParams extends ParamDict = ParamDict, // Add this constraint here
   TQuery = AnyType
-> = (
-  req: CustomRequest<TBody, TParams, TQuery>,
-  res: Response
-) => AnyType;
+> = (req: CustomRequest<TBody, TParams, TQuery>, res: Response) => AnyType;
+
+export type Middleware<
+  TBody = AnyType,
+  TParams extends ParamDict = ParamDict,
+  TQuery = AnyType
+> = RequestHandler<TParams, unknown, TBody, TQuery>;
 
 type Method =
   | "get"
