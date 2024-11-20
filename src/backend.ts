@@ -22,7 +22,7 @@ export type Middleware<
   TQuery = AnyType
 > = RequestHandler<TParams, unknown, TBody, TQuery>;
 
-type Method =
+export type Method =
   | "get"
   | "head"
   | "post"
