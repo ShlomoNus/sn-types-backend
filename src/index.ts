@@ -1,2 +1,1 @@
-
-export type {Handler,Route,Middleware} from './backend'
+export type { Handler, Route, Middleware } from './backend';
