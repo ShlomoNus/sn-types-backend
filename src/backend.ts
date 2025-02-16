@@ -3,6 +3,7 @@ import { AnyType } from 'sn-types-general';
 
 type ParamDict = Record<string, AnyType>;
 type Locals = Record<string, AnyType>;
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface CustomRequest<
     TBody = AnyType,
     TParams extends ParamDict = ParamDict,
@@ -14,8 +15,8 @@ export type Handler<
     TBody = AnyType,
     TParams extends ParamDict = ParamDict, // Add this constraint here
     TQuery = AnyType,
-    TLocals extends Locals = Locals
-> = (req: CustomRequest<TBody, TParams, TQuery>, res: Response) => AnyType;
+    TLocals extends Locals = Locals,
+> = (req: CustomRequest<TBody, TParams, TQuery, TLocals>, res: Response) => AnyType;
 
 export type Middleware<
     TBody = AnyType,
