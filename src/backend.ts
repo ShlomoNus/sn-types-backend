@@ -50,5 +50,5 @@ export type Route = {
     method: Method;
     path: string;
     middleware?: Middleware[];
-    handler: Handler | Router;
+    handler: Router | Handler;
 };
