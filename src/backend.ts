@@ -2,14 +2,19 @@ import { Router, Request, Response, RequestHandler } from 'express';
 import { AnyType } from 'sn-types-general';
 
 type ParamDict = Record<string, AnyType>;
-
-interface CustomRequest<TBody = AnyType, TParams extends ParamDict = ParamDict, TQuery = AnyType>
-    extends Request<TParams, AnyType, TBody, TQuery> {}
+type Locals = Record<string, AnyType>;
+interface CustomRequest<
+    TBody = AnyType,
+    TParams extends ParamDict = ParamDict,
+    TQuery = AnyType,
+    TLocals extends Locals = Locals,
+> extends Request<TParams, AnyType, TBody, TQuery, TLocals> {}
 
 export type Handler<
     TBody = AnyType,
     TParams extends ParamDict = ParamDict, // Add this constraint here
     TQuery = AnyType,
+    TLocals extends Locals = Locals
 > = (req: CustomRequest<TBody, TParams, TQuery>, res: Response) => AnyType;
 
 export type Middleware<
