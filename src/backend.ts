@@ -10,14 +10,16 @@ export interface CustomRequest<
     TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
     TLocals extends Locals = Locals,
-> extends Request<TParams, AnyType, TBody, TQuery, TLocals> {}
+    TResBody = AnyType,
+> extends Request<TParams, TResBody, TBody, TQuery, TLocals> {}
 
 export type Handler<
     TBody = AnyType,
-    TParams extends ParamDict = ParamDict, // Add this constraint here
+    TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
     TLocals extends Locals = Locals,
-> = (req: CustomRequest<TBody, TParams, TQuery, TLocals>, res: Response) => AnyType;
+    TResBody = AnyType,
+> = (req: CustomRequest<TBody, TParams, TQuery, TLocals, TResBody>, res: Response) => AnyType;
 
 export type Middleware<
     TBody = AnyType,
