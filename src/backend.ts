@@ -1,4 +1,4 @@
-import { Router, Request, Response, RequestHandler } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import { AnyType } from 'sn-types-general';
 
 type ParamDict = Record<string, AnyType>;
@@ -22,10 +22,17 @@ export type Handler<
 > = (req: CustomRequest<TBody, TParams, TQuery, TLocals, TResBody>, res: Response) => AnyType;
 
 export type Middleware<
+    TResult = AnyType,
     TBody = AnyType,
     TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
-> = RequestHandler<TParams, unknown, TBody, TQuery>;
+    TLocals extends Locals = Locals,
+    TResBody = AnyType,
+> = (
+    req: CustomRequest<TBody, TParams, TQuery, TLocals, TResBody>,
+    res: Response,
+    next: NextFunction
+) => TResult | Promise<TResult>;
 
 export type Method =
     | 'get'
