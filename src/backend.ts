@@ -3,8 +3,9 @@ import { AnyType } from 'sn-types-general';
 
 type ParamDict = Record<string, AnyType>;
 type Locals = Record<string, AnyType>;
+
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface CustomRequest<
+export interface CustomRequest<
     TBody = AnyType,
     TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
