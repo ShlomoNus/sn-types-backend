@@ -1,4 +1,3 @@
-
 export type Success<TPayload = undefined> = {
     status: true;
     payload: TPayload;
