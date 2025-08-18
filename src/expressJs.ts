@@ -1,16 +1,16 @@
-import { Router, Request, Response, NextFunction } from 'express';
-import { AnyType } from 'sn-types-general';
+import { Router, Request, Response, NextFunction } from "express";
+import { AnyType } from "sn-types-general";
 
 type ParamDict = Record<string, AnyType>;
 type Locals = Record<string, AnyType>;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+ 
 export interface CustomRequest<
     TBody = AnyType,
     TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
     TLocals extends Locals = Locals,
-    TResBody = AnyType,
+    TResBody = AnyType
 > extends Request<TParams, TResBody, TBody, TQuery, TLocals> {}
 
 export type Handler<
@@ -18,7 +18,7 @@ export type Handler<
     TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
     TLocals extends Locals = Locals,
-    TResBody = AnyType,
+    TResBody = AnyType
 > = (req: CustomRequest<TBody, TParams, TQuery, TLocals, TResBody>, res: Response) => AnyType;
 
 export type Middleware<
@@ -27,7 +27,8 @@ export type Middleware<
     TParams extends ParamDict = ParamDict,
     TQuery = AnyType,
     TLocals extends Locals = Locals,
-    TResBody = AnyType,
+    TResBody = AnyType
+// eslint-disable-next-line max-params
 > = (
     req: CustomRequest<TBody, TParams, TQuery, TLocals, TResBody>,
     res: Response,
@@ -35,16 +36,16 @@ export type Middleware<
 ) => TResult | Promise<TResult>;
 
 export type Method =
-    | 'get'
-    | 'head'
-    | 'post'
-    | 'put'
-    | 'delete'
-    | 'connect'
-    | 'options'
-    | 'trace'
-    | 'patch'
-    | 'use';
+    | "get"
+    | "head"
+    | "post"
+    | "put"
+    | "delete"
+    | "connect"
+    | "options"
+    | "trace"
+    | "patch"
+    | "use";
 
 export type Route = {
     method: Method;

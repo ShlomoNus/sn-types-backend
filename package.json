@@ -1,51 +1,61 @@
 {
-    "name": "sn-types-backend",
-    "version": "1.2.1",
-    "description": "",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
-    "types": "dist/index.d.ts",
-    "files": [
-        "dist/"
-    ],
-    "exports": {
-        ".": {
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
-        }
-    },
-    "author": "Shlomo Nusbaum",
-    "scripts": {
-        "prettier": "prettier --check .",
-        "prettier-fix": "prettier --write .",
-        "lint": "eslint .",
-        "lint-fix": "eslint . --fix",
-        "check": "npm run lint && npm run prettier",
-        "fix": "npm run lint-fix && npm run prettier-fix",
-        "build": "rimraf ./dist && tsc -p tsconfig.json "
-    },
-    "license": "ISC",
-    "devDependencies": {
-        "eslint": "^9.20.1",
-        "eslint-config-prettier": "^10.0.1",
-        "eslint-plugin-prettier": "^5.2.3",
-        "globals": "^15.15.0",
-        "husky": "^9.1.7",
-        "prettier": "^3.5.1",
-        "rimraf": "^6.0.1",
-        "sn-types-general": "^1.0.7",
-        "ts-jest": "^29.2.5",
-        "ts-node": "^10.9.2",
-        "tsconfig-paths": "^4.2.0",
-        "tsx": "^4.19.2",
-        "typescript": "^5.7.3",
-        "typescript-eslint": "^8.24.0"
-    },
-    "overrides": {
-        "eslint": "^9.20.1"
-    },
-    "dependencies": {
-        "@types/express": "^5.0.0",
-        "express": "^4.21.2"
+  "name": "sn-types-backend",
+  "version": "1.2.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShlomoNus/-types-sn-general"
+  },
+  "bugs": {
+    "url": "https://github.com/ShlomoNus/-types-sn-general/issues"
+  },
+  "homepage": "https://github.com/ShlomoNus/-types-sn-general#readme",
+  "author": "Shlomo Nusbaum",
+  "license": "ISC",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "build": "rimraf ./dist && tsc -p tsconfig.json",
+    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.2.3",
+    "eslint": "^9.33.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.1",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.5.1",
+    "rimraf": "^6.0.1",
+    "sn-types-general": "^1.0.19",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1"
+  },
+  "overrides": {
+    "eslint": "^9.33.0"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "express": "^5.1.0"
+  }
 }
