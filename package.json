@@ -1,6 +1,6 @@
 {
   "name": "sn-types-backend",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ShlomoNus/-types-sn-general"
+    "url": "https://github.com/ShlomoNus/-types-sn-backend"
   },
   "bugs": {
-    "url": "https://github.com/ShlomoNus/-types-sn-general/issues"
+    "url": "https://github.com/ShlomoNus/-types-sn-backend/issues"
   },
-  "homepage": "https://github.com/ShlomoNus/-types-sn-general#readme",
+  "homepage": "https://github.com/ShlomoNus/-types-sn-backend#readme",
   "author": "Shlomo Nusbaum",
   "license": "ISC",
   "scripts": {
