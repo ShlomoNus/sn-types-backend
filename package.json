@@ -1,5 +1,5 @@
 {
-  "name": "sn-types-backend",
+  "name": "@ShlomoNus/sn-types-backend",
   "version": "1.2.7",
   "description": "",
   "main": "dist/index.js",
@@ -16,16 +16,16 @@
     }
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/@ShlomoNus"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ShlomoNus/-types-sn-backend"
+    "url": "https://github.com/ShlomoNus/sn-types-backend"
   },
   "bugs": {
-    "url": "https://github.com/ShlomoNus/-types-sn-backend/issues"
+    "url": "https://github.com/ShlomoNus/sn-types-backend/issues"
   },
-  "homepage": "https://github.com/ShlomoNus/-types-sn-backend#readme",
+  "homepage": "https://github.com/ShlomoNus/sn-types-backend#readme",
   "author": "Shlomo Nusbaum",
   "license": "ISC",
   "scripts": {
@@ -35,6 +35,11 @@
     "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.0.3",
     "@stylistic/eslint-plugin": "^5.2.3",
     "eslint": "^9.33.0",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -43,7 +48,7 @@
     "husky": "^9.1.7",
     "jiti": "^2.5.1",
     "rimraf": "^6.0.1",
-    "sn-types-general": "^1.0.20",
+    "semantic-release": "^24.2.7",
     "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
@@ -57,5 +62,18 @@
   "dependencies": {
     "@types/express": "^5.0.3",
     "express": "^5.1.0"
+  },
+    "release": {
+    "branches": ["main"],
+    "plugins": [
+      ["@semantic-release/commit-analyzer"],
+      ["@semantic-release/release-notes-generator"],
+      ["@semantic-release/changelog"],
+      ["@semantic-release/npm"],
+      ["@semantic-release/git", {
+        "assets": ["package.json", "CHANGELOG.md"],
+        "message": "chore(release): 🚀 ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }]
+    ]
   }
 }

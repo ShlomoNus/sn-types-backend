@@ -1,5 +1,5 @@
+import { AnyType } from "@ShlomoNus/sn-types-general";
 import { Router, Request, Response, NextFunction } from "express";
-import { AnyType } from "sn-types-general";
 
 type ParamDict = Record<string, AnyType>;
 type Locals = Record<string, AnyType>;
