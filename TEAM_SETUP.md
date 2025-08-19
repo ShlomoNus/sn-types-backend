@@ -18,9 +18,11 @@ This token will allow you to install all packages published under the `@ShlomoNu
 
 ---
 
-## 2. Set the Token as an Environment Variable (Windows)
+## 2. Set the Token as an Environment Variable
 
-Open **PowerShell** and run:
+### Windows (PowerShell)
+
+Run:
 
 ```powershell
 setx NPM_TOKEN "ghp_yourGeneratedTokenHere"
@@ -37,11 +39,33 @@ echo $env:NPM_TOKEN
 
 ---
 
+### Linux / macOS (bash / zsh)
+
+Open your shell config (`~/.bashrc` or `~/.zshrc`) and add:
+
+```bash
+export NPM_TOKEN=ghp_yourGeneratedTokenHere
+```
+
+Then reload your shell:
+
+```bash
+source ~/.bashrc   # or source ~/.zshrc
+```
+
+Verify it’s set:
+
+```bash
+echo $NPM_TOKEN
+```
+
+---
+
 ## 3. Verify Access
 
 Run this command to test authentication:
 
-```powershell
+```bash
 npm whoami --registry=https://npm.pkg.github.com
 ```
 
@@ -53,7 +77,7 @@ You should see your GitHub username.
 
 Now you can install project dependencies normally:
 
-```powershell
+```bash
 npm install
 ```
 
